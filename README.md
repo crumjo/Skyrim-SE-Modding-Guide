@@ -1,204 +1,246 @@
 # Skyrim SE Modding Guide #
 
 
+
+---------------
+## Objective ##
+This project seeks to provide a walkthrough to modding Skyrim SE from start to
+finish. This walkthrough is intended to be for anyone, regardless of their
+modding experience. I wrote this while going through the process of modding a
+fresh Skyrim SE install using Mod Organizer 2 (MO2). While there are other
+managers out there, such as Vortex or Nexus Mod Manager (NMM), I have found MO2
+to be my favorite.
+
+This project is a walkthrough, and not intended to be used as a comprehensive
+guide for any of the tools used. All tools are well documented so please refer
+to their Nexus page for more information.
+
+
+-----------------
 ## Preparation ##
+
+### Nexus Mods ###
+
+- Create a [NexusMods](https://www.nexusmods.com/skyrimspecialedition) account.
+  This is where almost all of the mods used in this walkthrough can be
+  downloaded from.
 
 
 ### Clean Skyrim SE Installation ###
 
-- Avoid installation on _C:\\_ drive if possible. If _C:\\_ is the only 
-  option, install anywhere except _Program Files_.
+- Avoid installation on _C:\\_ drive if possible. If _C:\\_ is the only
+  option, install anywhere except _Program Files_ or _Program Files (x86)_.
 
 - Disable Steam automatic updates and the Steam overlay.
 
-- Start game and select ultra preset if auto-detect fails and then load into 
+- Start game and select ultra preset if auto-detect fails and then load into
   the main menu. This is done in order to generate _.ini_ settings files.
 
+
+### 7-Zip (Optional) ###
+[7-Zip](https://www.7-zip.org/) is a free and open source file archive tool
+  that I would highly recommend.
+  MO2 works natively with .7z archive files, but standard zip files work too.
+
+### Folder Setup (Optional) ###
+This is an optional step, but I like to configure a sensible folder structure
+to make life and mod managing easier.
+
+- I have a separate SSD with a folder called "Mods". Inside this folder, I have
+  created several subfolders:
+
+  a. _Mod Organizer 2 Mods_ - Location for installed and downloaded mods. Mod
+     Organizer 2 will create several subfolders here after completion of the
+     next step.
+
+  b. _Manual Mods_ - Location for mods not downloaded through MO2.
+
+  c. _Tools_ - Installation location for all tools used in this walkthrough.
+
+  d. _Skyrim Special Edition - Shortcut_ - Shortcut to the base Skyrim
+     installation Steam folder for quick access.
 
 
 ### Mod Manager Installation ###
 
-- Mod Organizer 2 (MO2) is the community favorite, download and run the 
-  installer from Nexus.
+- [Mod Organizer 2](https://www.nexusmods.com/skyrimspecialedition/mods/6194)
+  is my personal favorite, download and run the installer from Nexus.
 
-- The installer should create a start menu shortcut. Right click this shortcut 
-  and follow _More > Open file location > Shortcut > Advanced..._ and check 
-  the _Run as administrator_ checkbox.
+- The installer should create a start menu shortcut. Right click this shortcut
+  and follow _More > Open file location > Shortcut > Advanced..._ and check
+  the _Run as administrator_ checkbox. Now MO2 will always run with
+  administrator privileges when you use the start menu to launch it, which
+  reduces potential file permission issues.
 
-- Point mod manager to a new folder with **write permissions** for all mods 
-  installed by the manager.
+- Create a folder anywhere you want to store your mods (even on a different
+  drive). Keep in mind that this folder can grow to be quite large depending on
+  how many mods you have, so plan accordingly. If you decided to follow my
+  folder configuration from the previous step, point MO2 to
+   _Mod Organizer 2 Mods_
 
+- Run MO2 and point it to the mod folder you just created:
+  _Tools > Settings... > Paths > Base Directory_
 
 
 ### LOOT Installation ###
+LOOT (Load Order Optimization Tool) is a program that we will use to set a load
+order for the installed mods in our game. This is important for stability.
 
-- Download LOOT (Load Order Optimization Tool) from Nexus and run the 
-  installer.
-  
-- LOOT should auto detect your game and flag _Update.esm_, _Dawnguard.esm_, 
-  _HearthFires.esm_, and _Dragonborn.esm_ as dirty plugins.
+- Download [LOOT](https://www.nexusmods.com/skyrimspecialedition/mods/1918)
+  from Nexus and run the installer.
 
+- Add LOOT executable to MO2 so that it can be launched from there:
+  _Tools > Executables > + > Add from file... > locate your LOOT executable_
+
+- Run LOOT from MO2, it should auto detect your game and flag _Update.esm_,
+  _Dawnguard.esm_, _HearthFires.esm_, and _Dragonborn.esm_ as dirty plugins.
+
+- Close LOOT, we will come back to it later.
 
 
 ### Clean Master Files ###
+SSEEdit is a an "advanced graphical module viewer/editor and conflict detector"
+that we will use to clean the 4 master files to improve stability. **Do not
+clean any dirty plugins downloaded from Nexus unless the installation
+instructions tell you to.**
 
-1. Download SSEEdit standalone.
+1. Download and extract
+   [SSEEdit](https://www.nexusmods.com/skyrimspecialedition/mods/164) using
+   7-Zip.
 
-2. Add _SSEEdit.exe_ and _SSEEditQuickAutoClean.exe_ executables to mod 
-   manager.
-   
-3. Run _SSEEditQuickAutoClean.exe_ on each plugin individually in the 
-   order below. The message "Background Loader: finished" should appear once 
-   the plugin cleaning is complete.
-   
+2. Add _SSEEditQuickAutoClean.exe_ executable to MO2.
+
+3. Run _SSEEditQuickAutoClean.exe_ on each plugin _individually_ in the
+   order below, closing SSEEdit between cleanings. The message "Background
+   Loader: finished" should appear the plugin cleaning is complete.
+
    a. _Update.esm_
-   
+
    b. _Dawnguard.esm_
-   
+
    c. _HearthFires.esm_
-   
+
    d. _Dragonborn.esm_
-   
-4. Create a new archive with the cleaned plugins so that updates to do not 
-   revert them back to their old dirty state. Navigate to the Skyrim base 
-   folder and add all 4 plugins above to an archive. Move the archive out of 
-   the Skyrim data folder and install manually via MO2.
+
+4. Create a new archive with the cleaned plugins so that updates to do not
+   revert them back to their old dirty state. The location of the plugins is:
+   _[Skyrim Base Folder]/Data_. Ctrl click _Update.esm_, _Dawnguard.esm_,
+   _HearthFires.esm_, _Dragonborn.esm_ and then right click to bring up the
+   context menu, and then: _7-Zip > Add to data.7z_
+
+5. Install the cleaned masters via MO2:
+   _Install a new mod from an archive (top left) > locate data.7z > manual >
+   check all boxes > ok_
+
+6. After activating the mod (checking the box in the left pane), you should see
+   white lightning bolts next to the 3 DLCs, indicating that they have been
+   completely overwritten.
+
+7. Either delete _data.7z_ from the Skyrim Data folder or move it somewhere
+   else (I rename and keep mine in the "Other Mods" folder).
 
 
 
+-----------------------
 ## SKSE Installation ##
 
-- Download and extract the latest version.
+1. Download and extract the latest SE build for the
+   [Skyrim Script Extender](https://skse.silverlock.org/).
 
-- Copy both _.dll_ files and _skse64_loader.exe_ to Skyrim's base folder. 
-  Create a shortcut in MO2 to _skse64_loader.exe_ and launch the game with 
-  this from now on for SKSE to properly work.
+2. Copy both _.dll_ files and _skse64_loader.exe_ to Skyrim's base installation
+   folder.
 
-- Send the _Scripts_ folder, located inside of the _Data_ folder, to a 7zip 
-  archive and install manually via MO2.
+3. Create a shortcut in MO2 to _skse64_loader.exe_ and launch the game
+   with this from now on. This is required for SKSE to work properly.
+
+4. Send the _Scripts_ folder, located inside of the _Data_ folder of SKSE, to a
+   7-Zip or standard zip archive and install manually via MO2.
 
 
 
+---------------
 ## Core Mods ##
 
-- Achievements Mods Enabler
-
-- A Quality World Map
-
-- Alternate Start - Live Another Life
-
-- Cutting Room Floor
-
-- PapyrusUtil SE - Modders Scripting Utility Functions
-
-- SSE Engine Fixes (skse64 plugin)
-
-- SkyUI
-
-- Static Mesh Improvement Mod - SMIM
-
-- Unofficial Skyrim Special Edition Patch
+See 'core' in mods directory.
 
 
 
+---------
 ## ENB ##
 
-1. Download and extract the enb binaries from 
-   [enbdev](http://www.enbdev.com/download_mod_tesskyrimse.html)
-   
-2. Copy and paste _d3d11.dll_ and _d3dcompiler_46e.dll_ to Skyrim's base 
-   folder.
-   
-3. Download and extract the enb of your choice from Nexus and follow the 
-   author's installation instructions. Most enbs can be installed by simply 
-   copying _enbseries_, _enblocal.ini_, & _enbseries.ini_ to Skyrim's base 
+1. Download and extract the enb binaries from
+   [enbdev](http://enbdev.com/download_mod_tesskyrimse.htm)
+
+2. Copy and paste _enbseries_, _d3d11.dll_, and _d3dcompiler_46e.dll_ to
+   Skyrim's base folder from _Wrapper Version_.
+
+3. Download and extract the enb of your choice from Nexus and follow the
+   author's installation instructions. Most enbs can be installed by simply
+   copying _enbseries_, _enblocal.ini_, & _enbseries.ini_ to Skyrim's base
    folder, but some will have other dependencies (patches, weather mods, etc.)
 
 
 ### Additional ENB Mods ###
 
-- ENB Helper SE
-
-- [Skyrim particle patch for ENB](http://enbseries.enbdev.com/forum/viewtopic.php?f=6&t=1499)
-
-- ENB Light (^Particle patch required. Let ENB light overwrite the patch files)
-
-- NightEyeENBFix
+See 'enb' in mods directory.
 
 
 
+-------------
+## BethINI ##
+
+- Download and extract
+  [BethINI](https://www.nexusmods.com/skyrimspecialedition/mods/4875).
+
+- **Do not** add shortcut to MO2. BethINI and MO2 cannot run at the same time.
+
+- Close MO2 and run BethINI.
+
+- Make the tweaks recommended by your chosen ENB's README file.
+
+
+
+-----------------
 ## My Mod List ##
 
 
 ### Large Texture Packs ###
 
-**Listed in load order**
-
-1. Enhanced textures detail (UV-tweaks)
-
-2. SSE Texture Pack - Osmodius
-
-3. Noble Skyrim Mod HD-2K
-
-4. Skyrim 2018 by Pfuscher Skyrim
-
-5. Skyrim 2019 by Pfuscher
-
-6. 2020 Textures by Pfuscher
+See 'large_texture_packs' in mods directory.
 
 
 ### Weather, Lighting & Atmosphere ###
 
-- Embers HD
-
-- Enhanced Lights and FX
-
-- ETHEREAL CLOUDS - Special Edition
-
-- ETHEREAL COSMOS - Special Edition
-
-- Fluffy Snow
-
-- Just Ice
-
-- Obsidian Weathers and Seasons
-
-- Smooth Sky mesh - SSE
-
-- Ultimate HD Fire Effects SSE
+See 'weather_lighting_atmosphere' in mods directory.
 
 
 ### Landscape ###
 
-- Majestic Mountains - Cathedral Concept (with lods)
-
-- Skyrim 3D Landscapes
-
-- Skyrim 3D Rocks
+See 'landscapes' in mods directory.
 
 
 ### Clutter ###
 
-- Forgotten Retex Project
+See 'clutter' in mods directory.
 
-- High Poly Project
 
-- Misc Retexture Project
+### Vegetation ###
 
-- Rudy HQ - Misc SE - The Rest
-
-- Ruins Clutter Improved
-
-- RUSTIC CLUTTER COLLECTION - Special Edition
+See 'vegetation' in mods directory.
 
 
 ### Cities ###
 
-- Frankly HD Markarth - The White City Redux
+See 'cities' in mods directory.
 
-- JK's Skyrim
 
-- Leafeater's Whiterun Tree Overhaul SE
+### Mines & Ruins ###
+
+- CC's Castle Volkihar Reborn
+
+- CC's Fort Dawnguard Reborn
+
+- Rudy HQ - Nordic Ruins SE
 
 
 ### Other Textures ###
@@ -302,26 +344,6 @@
 - Training Dummies Retexture 4k and 2k
 
 - Underground - a dungeon texture overhaul
-
-
-### Mines & Ruins ###
-
-- CC's Castle Volkihar Reborn
-
-- CC's Fort Dawnguard Reborn
-
-- Rudy HQ - Nordic Ruins SE
-
-
-### Vegetation ###
-
-- HD Photorealistic Ivy
-
-- Skyrim 3D Trees and Plants
-
-- Skyrim 3D Landscapes
-
-- The Elder Scrolls - Veydosebrom - Grass and Groundcover
 
 
 ### Character & NPC ###
@@ -514,8 +536,6 @@
 
 - Lanterns of Skyrim SE
 
-- Smoking Torches and Candles
-
 - Wet and Cold
 
 
@@ -540,36 +560,36 @@
 
 2. Download the latest DynDOLOD Resources SE and the Standalone files.
 
-3. Extract DynDOLOD Standalone to the location you keep the rest of your 
+3. Extract DynDOLOD Standalone to the location you keep the rest of your
    modding tools.
 
-4. If needed, add DynDOLODx64.exe and TexGenx64.exe to your mod manager's 
+4. If needed, add DynDOLODx64.exe and TexGenx64.exe to your mod manager's
    executables with the -sse argument.
 
 5. Install all files in the LOD section above along.
 
-6. Install DynDOLOD Resources SE with your mod manager, selecting the options 
+6. Install DynDOLOD Resources SE with your mod manager, selecting the options
    of your choice.
 
-7. Ensure the new mod listing is activate in your mod manager and is the last 
+7. Ensure the new mod listing is activate in your mod manager and is the last
    mod in your mod list.
 
-8. Install 3D Trees and Plants along with the BILLBOARDS, optional file (let 
+8. Install 3D Trees and Plants along with the BILLBOARDS, optional file (let
    it overwrite DynDOLOD Resources SE files).
 
-9. Run TexGen with the default settings. Compress the output and install it 
+9. Run TexGen with the default settings. Compress the output and install it
    via mod manager. Place it last on the mod list.
 
 10. Run DynDOLOD.
 
-11. Most users can keep the defaults here, select the worldspaces to run 
+11. Most users can keep the defaults here, select the worldspaces to run
     (usually all of them), and simply click a preset to run. Advanced users
-    can click the wizard to have access to run DynDOLOD to generator only 
-    specific things or include additional features like Candles, FX Glow 
+    can click the wizard to have access to run DynDOLOD to generator only
+    specific things or include additional features like Candles, FX Glow
     Lights, and Windows.
 
-12. Once DynDOLD finishes, Save and Exit, and install the output to a new mod 
+12. Once DynDOLD finishes, Save and Exit, and install the output to a new mod
     using your mod manger.
 
-13. Active the new mod and sort your load order. Don't forget to reactivate 
+13. Active the new mod and sort your load order. Don't forget to reactivate
 	any mods that add trees to cities. Done!
