@@ -6,6 +6,8 @@
 
 - [Enhanced Lights and FX](https://www.nexusmods.com/skyrimspecialedition/mods/2424)
 
+- [ELFX - Exteriors Fixes](https://www.nexusmods.com/skyrimspecialedition/mods/26327/)
+
 - [Smoking Torches and Candles](https://www.nexusmods.com/skyrimspecialedition/mods/8607) patch
   will be installed by ENB Light.
 

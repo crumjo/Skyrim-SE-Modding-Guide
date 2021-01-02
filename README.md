@@ -182,7 +182,7 @@ See 'core' in mods directory.
 
 ### Additional ENB Mods ###
 
-See 'enb' in mods directory.
+See 'enb_lighting' in mods directory.
 
 
 
@@ -209,9 +209,9 @@ See 'enb' in mods directory.
 See 'large_texture_packs' in mods directory.
 
 
-### Weather, Lighting & Atmosphere ###
+### Weather & Atmosphere ###
 
-See 'weather_lighting_atmosphere' in mods directory.
+See 'weather_atmosphere' in mods directory.
 
 
 ### Landscape ###
@@ -234,116 +234,14 @@ See 'vegetation' in mods directory.
 See 'cities' in mods directory.
 
 
-### Mines & Ruins ###
+### Mines, Ruins & Castles ###
 
-- CC's Castle Volkihar Reborn
-
-- CC's Fort Dawnguard Reborn
-
-- Rudy HQ - Nordic Ruins SE
+See 'mines_ruins_caves' in mods directory.
 
 
 ### Other Textures ###
 
-- Arri's Snow Elf Ruins Retexture Special Edition
-
-- Ash Pile Retexture
-
-- Astral Aspect - 4K Standing Stones
-
-- Barenziah's Glory SE
-
-- BetterFalmerCaveCeilingGlow
-
-- Blended Roads
-
-- Book Covers Skyrim
-
-- CC's HQ Barset
-
-- CC's HQ Buckets
-
-- CC's HQ Carts
-
-- CC's Enhanced Ore Veins SSE Edition
-
-- CC's HQ Guard Shields SSE
-
-- CC's HQ Firewood
-
-- CC's HQ Roadsigns SSE
-
-- CL's Barrels and Crates
-
-- ElSopa HD - Unique Hand Made Signs Overhaul SE
-
-- Enhanced Blood Textures SE
-
-- Ennead - Septims
-
-- Farmhouse Door 3D
-
-- Fences of Skyrim - No more flickering fences
-
-- Gecko's Dwarven Ruins Textures
-
-- Gemling Queen Jewelry SE
-
-- Glorious Dwarven Metal
-
-- Glorious Solitude Door Replacer SE
-
-- HD Lava for Dawnguard
-
-- JS Dragon Claws SE
-
-- Low Resolution Particles
-
-- Medieval Candlehorns and Sconces
-
-- Medieval Silverworks
-
-- Organic Riften Leaves
-
-- PELTAPALOOZA - Special Edition
-
-- Rudy HQ - Hay SE
-
-- RUGNAROK - Special Edition
-
-- RUSTIC ANIMATED POTIONS and POISONS
-
-- RUSTIC AZURA'S STAR - Special Edition
-
-- RUSTIC COOKING - Special Edition
-
-- RUSTIC ELDERSCROLL - Special Edition
-
-- RUSTIC FURNITURE - SPECIAL EDITION
-
-- RUSTIC SOULGEMS - Special Edition
-
-- RUSTIC WINDOWS - Special Edition
-
-- Skyrim Textures Redone - SkyHaven
-
-- Skyrim 3D Docks and Boardwalks
-
-- Skyrim 3D Windmill
-
-- Soul Cairn HD
-
-- Soulgem Stand Redone
-
-- Sovngarde HD
-
-- Stalhrim Source
-
-- Stunning Statues of Skyrim
-
-- Training Dummies Retexture 4k and 2k
-
-- Underground - a dungeon texture overhaul
+See 'other' in mods directory.
 
 
 ### Character & NPC ###
@@ -423,6 +321,12 @@ See 'cities' in mods directory.
 ### Armor and Clothing ###
 
 - Ars Metallica - Smithing Enhancement
+
+- [CC's HD Daedric Weapons and Armor](https://www.nexusmods.com/skyrimspecialedition/mods/23029)
+
+- [CC's HD Dwemer Weapons and Armor](https://www.nexusmods.com/skyrimspecialedition/mods/32384)
+
+- [CC's UHD Stalhrim Weapons and Armor](https://www.nexusmods.com/skyrimspecialedition/mods/27205)
 
 - Frankly HD Dawnguard Armor and Weapons
 
